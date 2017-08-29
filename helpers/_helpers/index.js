@@ -33,7 +33,6 @@ const getRanVersion = () => getMainPackage().version;
  * Write RAN! Boilerplate Name
  * @method writeRan
  * @param  {Function} callback callback after finished
- * @return {void}
  */
 const writeRan = (callback) => {
   process.stdout.write('\n');
@@ -49,6 +48,11 @@ const writeRan = (callback) => {
   if (callback) callback();
 };
 
+/**
+ * Show your plugin name
+ * @method showPluginName
+ * @param  {string} pluginName Your plugin name
+ */
 const showPluginName = (pluginName) => {
   writeRan(() => {
     process.stdout.write(chalk.dim('Plugin name: ') + chalk.magenta(pluginName));
@@ -56,8 +60,20 @@ const showPluginName = (pluginName) => {
   });
 };
 
+/**
+ * Show your progress
+ * @method showSpinnerWithText
+ * @param  {string} text Progress Text
+ * @return {object} ORA plugin object
+ */
 const showSpinnerWithText = (text) => ora(text).start();
 
+/**
+ * Is Array check
+ * @method isArray
+ * @param  {any}  a Variable
+ * @return {Boolean}   true/false
+ */
 const isArray = (a) => Object.prototype.toString.call(a) === '[object Array]';
 
 module.exports = {
